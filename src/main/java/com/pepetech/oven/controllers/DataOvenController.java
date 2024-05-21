@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/parameters")
+@RequestMapping("/api/v1/oven-data")
 public class DataOvenController {
     private final DataOvenService service;
 
