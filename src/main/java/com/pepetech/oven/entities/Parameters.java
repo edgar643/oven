@@ -11,7 +11,7 @@ public class Parameters {
     @Id
     @GeneratedValue
     private Long id;
-    private Double SetPoint;
+    private Double setPoint;
     private Double Kp;
     private Double Ki;
     private Double Kd;
