@@ -21,5 +21,5 @@ public class DataOven {
     private Double externalTemperature;
     private Double error;
     private int strategySelected;
-    private Date lastModified;
+    private Date date;
 }

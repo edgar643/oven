@@ -5,6 +5,7 @@ import com.pepetech.oven.repositories.DataOvenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +22,8 @@ public class DataOvenService {
         return repository.save(dataOven);
     }
 
-    public List<DataOven> getAllDataOvens() {
-        return repository.findAll();
+    public List<DataOven> getAllDataOvens(LocalDate startDate, LocalDate endDate) {
+        return repository.findAllByDateBetween(startDate, endDate);
     }
 
     public Optional<DataOven> getDataOvenById(Long id) {
