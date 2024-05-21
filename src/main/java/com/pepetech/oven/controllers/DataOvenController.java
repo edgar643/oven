@@ -7,7 +7,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 @RestController
@@ -28,13 +30,7 @@ public class DataOvenController {
     @GetMapping
     public List<DataOven> getAllDataOvens(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
                                           @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
-        if (startDate == null) {
-            startDate = LocalDate.now();
-        }
-        if (endDate == null) {
-            endDate = LocalDate.now().plusDays(-1);
-        }
-        return service.getAllDataOvens(startDate, endDate);
+        return service.getAllDataOvensBydDate();
     }
 
     @GetMapping("/{id}")
