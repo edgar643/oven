@@ -12,9 +12,9 @@ public class Parameters {
     @GeneratedValue
     private Long id;
     private Double setPoint;
-    private Double Kp;
-    private Double Ki;
-    private Double Kd;
+    private Double kp;
+    private Double ki;
+    private Double kd;
     private Double hysteresis;
     private int strategySelected;
 }
