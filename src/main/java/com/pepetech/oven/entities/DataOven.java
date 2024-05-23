@@ -20,6 +20,7 @@ public class DataOven {
     private Double hysteresis;
     private Double temperature;
     private Double externalTemperature;
+    private Double forecastTemperature;
     private Double error;
     private int strategySelected;
     private Date date;
