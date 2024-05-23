@@ -23,5 +23,5 @@ public class DataOven {
     private Double forecastTemperature;
     private Double error;
     private int strategySelected;
-    private Date date;
+    private Date date = new Date();
 }

@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +24,10 @@ public class DataOvenService {
         final HashMap<String, Object> weatherDataMap = (HashMap<String, Object>) WeatherService.getCurrentWeatherData();
         final HashMap<String, Object> weatherDataMapMain = (HashMap<String, Object>) weatherDataMap.get("main");
         final var temperature = weatherDataMapMain.get("temp");
+        double error = dataOven.getSetPoint() - dataOven.getTemperature();
+        error = Math.round(error * 100.0) / 100.0;
+        dataOven.setError(error);
+        dataOven.setDate(Optional.ofNullable(dataOven.getDate()).orElse(new Date()));
         dataOven.setForecastTemperature((Double) temperature);
         return repository.save(dataOven);
     }
