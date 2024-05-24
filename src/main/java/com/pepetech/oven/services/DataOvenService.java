@@ -4,6 +4,7 @@ import com.pepetech.oven.entities.DataOven;
 import com.pepetech.oven.repositories.DataOvenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -32,8 +33,9 @@ public class DataOvenService {
         return repository.save(dataOven);
     }
 
-    public List<DataOven> getAllDataOvens(LocalDate startDate, LocalDate endDate) {
-        return repository.findAll();
+    public List<DataOven> getAllDataOvenOnePage() {
+       final Pageable pageable = PageRequest.of(0, 1, Sort.by("date").descending());
+        return repository.findAll(pageable).getContent();
     }
 
     public List<DataOven> getAllDataOvensBydDate() {
