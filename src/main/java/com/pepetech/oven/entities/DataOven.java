@@ -22,6 +22,7 @@ public class DataOven {
     private Double temperature;
     private Double externalTemperature;
     private Double forecastTemperature;
+    private Double output;
     private Double error;
     private int strategySelected;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
