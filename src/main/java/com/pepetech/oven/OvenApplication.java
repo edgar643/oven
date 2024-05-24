@@ -11,5 +11,4 @@ public class OvenApplication {
     public static void main(String[] args) {
         SpringApplication.run(OvenApplication.class, args);
     }
-
 }

@@ -1,5 +1,6 @@
 package com.pepetech.oven.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -23,5 +24,6 @@ public class DataOven {
     private Double forecastTemperature;
     private Double error;
     private int strategySelected;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     private Date date = new Date();
 }
